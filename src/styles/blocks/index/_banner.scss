@@ -1,0 +1,38 @@
+@use '../../abstracts/variables' as *;
+@use '../../abstracts/grid' as *;
+@use '../../abstracts/mixins' as mixin;
+
+
+.banner {
+    @include mixin.section-spacing($section-spacing-default);
+    position: relative;
+    align-content: center;
+    background-image: url("../../images/banner-bg.png");
+    background-size: cover;
+    background-position: center;        
+    background-repeat: no-repeat;
+    height: 100%;
+    min-height: 600px;
+    &__wrapper {
+        grid-column: 1 / span 5;
+    }
+    &__container {
+        padding: 80px 0;
+        row-gap: 49px;
+    }
+    &__title {
+        color: $color-text-banner-title;
+        padding-right: 30px;
+        font-size: 60px;
+        line-height: 72px;
+
+    }
+    &__content {
+        color: $color-text-light;
+        line-height: 57.6px;
+    }
+    &__btn {
+        grid-row: 2;
+        padding: 22px 31.5px;
+    }
+}

@@ -1,0 +1,53 @@
+header
+  .header__container.grid-container
+    .header__section.header__section--phone
+      a.header__phone(href="tel:+74958854547")
+        svg.icon-phone(width="22" height="22")
+          use(xlink:href="/images/sprite.svg#phone")
+        | +7 (495) 885-45-47
+    .header__section.header__section--nav
+      nav.header__nav
+        ul.header__first-menu
+          li.header__item.nav-link
+            a(href="#") О компании
+          li.header__item.nav-link
+            a(href="#") Гарантия и возврат
+          li.header__item.nav-link
+            a(href="#") Корпоративным клиентам
+          li.header__item.nav-link
+            a(href="#") Дизайн-решение
+    .header__section.header__section--logo
+      a.header__logo(href="#")
+        svg.icon-phone(width="187" height="27")
+          use(xlink:href="/images/sprite.svg#logo") 
+    .header__section.header__section--nav2     
+      nav.header__nav2
+        ul.header__second-menu
+          li.header__item.nav-link
+            a(href="#") Каталог
+          li.header__item.nav-link
+            a(href="#") Магазины
+          li.header__item.nav-link
+            a(href="#") Шоу-рум
+          li.header__item.nav-link
+            a(href="#") Доставка и оплата   
+          li.header__item.nav-link
+            a(href="#") Дисконт
+          li.header__item.nav-link
+            a(href="#") Контакты    
+    .header__section.header__section--search       
+      form.header__search-form(action="#", method="get")
+        svg.icon-search(width="20" height="20")
+          use(xlink:href="/images/sprite.svg#search")                              
+        input.header__search-input(type="text" placeholder="Я хочу купить...")
+        button.btn-reset.header__search-btn(type="submit")
+          svg.icon-search(width="32" height="32")
+            use(xlink:href="/images/sprite.svg#btn-search")           
+    .header__section.header__section--icons
+      a(href="#").header__icon.user-icon
+        svg.icon-menu(width="26" height="28")
+          use(xlink:href="/images/sprite.svg#account")   
+      a(href="#").header__icon.basket-icon
+        svg.icon-menu(width="30" height="28")
+          use(xlink:href="/images/sprite.svg#basket")         
+

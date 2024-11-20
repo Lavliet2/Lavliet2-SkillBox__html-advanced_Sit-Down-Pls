@@ -1,0 +1,100 @@
+@use '../../abstracts/variables' as *;
+
+.categories {
+    &__grid {
+        grid-column: 1 /span 12;
+        width: 100%;
+    }
+    &__container {
+        gap: 26px;
+    }
+    &__img {
+        &--sofa {
+            background-image: url('../../images/products/Диваны.png');
+            background-size: contain;
+            background-position: 0%;
+            background-repeat: no-repeat;         
+        }
+        &--chair {
+            background-image: url('../../images/products/Кресла.png');
+            background-size: contain;
+            background-position: 0%;
+            background-repeat: no-repeat;         
+        }
+        &--bed {
+            background-image: url('../../images/products/Кровати.png');
+            background-size: contain;
+            background-position: 0%;
+            background-repeat: no-repeat;         
+        }
+        &--dresser {
+            background-image: url('../../images/products/Тумбы и комоды.png');
+            background-size: contain;
+            background-position: 0%;
+            background-repeat: no-repeat;         
+        }
+        &--chairs {
+            background-image: url('../../images/products/Стулья.png');
+            background-size: contain;
+            background-position: 0%;
+            background-repeat: no-repeat;         
+        }
+    }
+    &__items {
+        display: grid;
+        background-color: $color-background-primary;
+        grid-column: span 6;
+        grid-template-rows: auto 1fr auto;
+        position: relative;
+        height: 511px;
+        border-radius: 10px;
+        &--top {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            align-self: self-start;
+            padding: 30px;
+            padding-top: 28px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 14px;
+            color: $color-text-secondary;               
+        }
+        &--content {
+            display: flex;
+            gap: 30px;
+        }
+        &--bot {
+            align-self: self-end;
+            padding: 30px;
+        }
+        &--sofa {
+            grid-column: span 6;            
+          }
+      
+          &--chair {
+            grid-column: span 6;
+          }
+      
+          &--bed {
+            grid-column: span 4;
+          }
+      
+          &--dresser {
+            grid-column: span 4;
+          }
+      
+          &--chairs {
+            grid-column: span 4;
+          }
+          &--small {
+              height: 405px;
+          }
+    }
+    &__name {
+        line-height: 32.68px;
+    }
+    &__link {
+        display: inline-flex;
+    }
+}

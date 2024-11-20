@@ -1,0 +1,33 @@
+//- section.offers(id="special-offers")
+//-   .offers__container.grid-container
+//-     h2.offers__title.column-12  Специальные предложения
+//-     .offers__grid.grid-container.column-12
+//-       each offer in _offers
+//-         .offers__items.offers__items(class=offer.alt === 'Диван' ? 'offers__items--sofa' : '')
+//-           if offer.discount
+//-             .offers__discount= `${offer.discount}`
+//-           .offers__items--wrapper
+//-             img.offers__image(src=`${offer.image}/${offer.name.toLowerCase().replace(/\s+/g, '-').replace(/["']/g, '')}.png`, alt=offer.alt)
+//-             .offers__items--content
+//-               h3.offers__name= offer.name
+//-               p.offers__price
+//-                 span.offers__price-new= `${offer.newPrice} руб`
+//-                 if offer.oldPrice
+//-                   span.offers__price-old= `${offer.oldPrice} руб`
+//-               button.btn-reset.btn.offers__button(type="button") Купить
+section.offers(id="special-offers")
+  .offers__container.grid-container
+    h2.offers__title.column-12  Специальные предложения
+    .offers__grid.grid-container.column-12
+      each offer in _offers
+        .offers__items.offers__items(class=`offers__items--${offer.desc.toLowerCase().replace(/\s+/g, '-').replace(/["']/g, '')}`)      
+          if offer.discount
+            .offers__discount= `${offer.discount}`
+          .offers__items--wrapper            
+            .offers__items--content
+              h3.offers__name !{offer.name}
+              p.offers__price
+                span.offers__price-new= `${offer.newPrice} руб`
+                if offer.oldPrice
+                  span.offers__price-old= `${offer.oldPrice} руб`
+              button.btn-reset.btn.btn-buy.offers__button(type="button") Купить

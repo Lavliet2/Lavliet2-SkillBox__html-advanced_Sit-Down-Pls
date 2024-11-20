@@ -1,0 +1,52 @@
+@use '../abstracts/variables' as *;
+
+.footer {
+    margin-top: 70px;
+    &__container {
+        padding: 23px 0;
+        justify-content: start;
+        align-items: start;
+    }    
+    &__wrapper {
+        display: grid;
+        justify-content: space-between;
+        align-items: start;
+        grid-column: span 4;
+        height: 100%;
+    }
+  &__nav {
+    display: flex;
+    flex-direction: column;
+  }
+  &__section {
+    &--nav {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        justify-content: space-between;
+        grid-column: span 8;
+        column-gap: 10px;
+        font-size: 14px;
+        line-height: 14px;       
+        color: $color-menu-first;     
+    }
+    &--social {
+        align-self: flex-end;
+        a {
+            margin-right: 20px;
+        }
+        // grid-row: 2;
+    }
+  }
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &__item {
+    &:first-child {
+        font-size: 16px;
+        line-height: 16px;
+        color: $color-menu-second;
+    }
+  }
+}

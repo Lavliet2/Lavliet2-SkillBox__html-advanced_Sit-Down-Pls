@@ -1,0 +1,37 @@
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+  
+    &__list {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  
+    &__item {
+      &:not(:last-child)::after {
+        content: '>'; // Разделитель
+        margin: 0 8px;
+        color: #ccc;
+      }
+    }
+  
+    &__link {
+      text-decoration: none;
+      color: #007bff;
+      transition: color 0.3s;
+  
+      &:hover {
+        color: #0056b3;
+      }
+    }
+  
+    &__current {
+      color: #555; // Цвет для текущей страницы
+      font-weight: bold;
+    }
+  }
+  

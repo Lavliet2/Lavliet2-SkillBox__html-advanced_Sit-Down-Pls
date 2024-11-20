@@ -1,0 +1,280 @@
+
+@use '../abstracts/variables' as *;
+
+html {
+    // background-color: $color-background-main;
+}
+
+body {
+    margin: 0 auto;
+    // max-width: 1920px;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    // background-color: $color-background-main;
+    @media (max-width: 750px) {
+        font-size: 14px;
+        line-height: 25px;
+    }
+}
+
+ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;  
+}
+
+p, input, h1, h2, h3, h4, h6, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+h1  {
+    // font-family: TT Firs Neue;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 65.37px;
+    text-align: left;
+    // @media (max-width: 1400px) {
+    //     font-size: 34px;
+    //     line-height: 34px;
+    // }
+    // @media (max-width: 992px) {
+    //     line-height: 30.06px;
+    // }
+    // @media (max-width: 750px) {
+    //     font-size: 24px;
+    //     line-height: 26.4px;
+    // }
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 32px;    
+//     font-family: TT Firs Neue;
+//     font-size: 24px;
+//     font-weight: 700;
+//     line-height: 30.96px;
+//     text-align: left;
+//     @media (max-width: 1400px) {
+//         line-height: 24.96px;
+//     }
+//     @media (max-width: 992px) {
+//         font-size: 24px;
+//         line-height: 30.96px;
+//     }
+//     @media (max-width: 750px) {
+//         font-size: 18px;
+//         line-height: 18.72px;        
+//     }
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31.2px;        
+    color: $color-text-primary;
+    // font-family: TT Firs Neue;
+    // font-size: 24px;
+    // font-weight: 400;
+    // line-height: 22px;
+    // text-align: left;   
+    // @media (max-width: 750px) {
+    //     font-size: 16px;
+    //     line-height: 22px;        
+    // }     
+}
+
+.btn-reset {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+  
+.btn {
+    padding: 20px 50px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 16px;
+    width: max-content;
+    border-radius: 10px;
+    color: $color-text-btn;
+    background-color: $color-btn-bg;
+    border: 2px solid $color-btn-bg;
+    transition: All 0.3s ease-in-out;
+    outline: none;
+    &:focus {
+        border-color: $color-btn-active;
+        background-color: $color-btn-focus;
+    }
+    &:hover {
+        border-color: $color-btn-hover;
+        background-color: $color-btn-hover;
+    }   
+    &:active {
+        background-color: $color-btn-active;
+    }
+    &:disabled {
+        background-color: $color-btn-disable;
+        cursor: not-allowed;
+    }
+    // @media (max-width: 750px) {
+    //     padding: 12px 22px;
+    //     font-size: 14px;
+    //     line-height: 16.41px;
+    // }
+}
+
+.btn-buy {
+    color: $color-btn-bg;
+    border: 2px solid $color-btn-bg;
+    background-color: transparent;
+    padding: 17px 33px;
+    transition: All 0.3s ease-in-out;
+    &:focus {
+        outline: transparent;
+        background-color: $color-btn-focus;
+        color: $color-text-light;
+    }  
+    &:hover {
+        background-color: $color-btn-bg;
+        color: $color-text-light;
+    }   
+       
+    &:active {
+        background-color: $color-btn-active;
+        color: $color-text-light;
+    }
+    &:disabled {
+        background-color: $color-btn-disable;
+        cursor: not-allowed;
+    }
+}
+
+.nav-link a {
+    position: relative;    
+    transition: all 0.3s ease-in-out;
+    &:focus {
+        color: $color-menu-focus;
+        outline: none;
+        background-color: $color-menu-focus-bg;
+    }          
+    &:hover {
+        color: $color-menu-hover;
+    }
+    &:active {
+        color: $color-menu-active;
+        background-color: transparent;
+    }
+}
+
+.catalog-link {
+    position: relative;    
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19.2px;
+    cursor: pointer; 
+    color: $color-link-catalog;
+    text-decoration: none; 
+    transition: all 0.3s ease-in-out;        
+    &:active {
+        color: $color-link-catalog-active;
+    }
+    &:focus {
+        outline: none;
+        color: $color-link-catalog-active;
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: $color-link-catalog;
+        transition: width 0.3s ease;
+      }
+      &:focus::before {
+        width: 100%; 
+      }    
+      &:hover::before {
+        width: 100%; 
+      }
+    &::after {
+        content: '';
+        position: absolute;
+        margin-left: 5px;
+        width: 22px; 
+        height: 22px;
+        background-image: url("../../images/arrow.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: all 0.3s ease, filter 0.3s ease;
+    }
+    &:focus::after {
+        background-image: url("../../images/arrow-focus.svg");
+    }
+    &:hover::after {
+        background-image: url("../../images/arrow-hover.svg");
+    }
+    &:active::after {
+        background-image: url("../../images/arrow-active.svg");
+    }
+    // &:focus-visible {
+    //     outline: 2px solid #444; // Показать кастомный outline только для клавиатуры
+    //     border-radius: 4px; // Добавить радиус
+    //   }
+
+}
+
+
+// .close-btn {
+//     position: absolute;
+//     top: 15px;
+//     right: 15px;
+//     padding: 0px 8px;
+//     background-color: #999999;
+//     color: $color-background-light;
+//     border: none;
+//     border-radius: 100%;
+//     cursor: pointer;
+//     transition: color 0.3s ease, background-color 0.3s ease;
+
+//     &:hover, &:focus {
+//         background-color: $color-hover;
+//         color: $color-background-light;
+//         outline: none;
+//     }
+// }
+
+
+// .link {
+//     font-size: 14px;
+//     font-weight: 400;
+//     line-height: 14px;
+//     color: $color-link;
+//     transition: color 0.3s ease-in-out;        
+//     &:hover {
+//         color: $color-link-hover;
+//         outline: none;
+//     }
+//     &:focus {
+//         color: $color-link-focus;
+//         outline: none;
+//         background-color: $color-link-focus-bg;
+//     }
+//     &:active {
+//         color: $color-link-active;
+//     }
+// }
+
+
+

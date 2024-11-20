@@ -1,0 +1,15 @@
+section.ratings(id="ratings")
+  .grid-container.ratings__wrapper
+    h2.rating__title.column-12  Высокий рейтинг
+    .ratings__container.grid-container.column-12
+      each rating in _ratings
+        .card.column-3.ratings__card
+          img.card--image(src=`${rating.image}/${rating.alt.toLowerCase().replace(/\s+/g, '-').replace(/["']/g, '')}.png`, alt=rating.alt)
+          .card--star-wrapper
+            svg(width="16" height="15")
+              use(xlink:href="/images/sprite.svg#star")            
+            span.card--star= `${rating.star}`
+          .card--content-wraper
+            h3.card--title !{rating.name}
+            p.card--price= `${rating.price}`
+            button.btn-reset.btn.btn-buy.card--btn(type="button") Купить

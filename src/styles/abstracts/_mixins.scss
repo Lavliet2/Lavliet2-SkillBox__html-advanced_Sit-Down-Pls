@@ -1,0 +1,6 @@
+@use '../abstracts/variables' as *;
+
+@mixin section-spacing($spacing: $section-spacing-default) {
+    margin-top: $spacing;
+    margin-bottom: $spacing;
+  }

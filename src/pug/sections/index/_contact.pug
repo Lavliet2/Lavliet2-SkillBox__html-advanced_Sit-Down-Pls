@@ -1,0 +1,16 @@
+section.contact(id="contact")
+  .contact__container.grid-container
+    .contact__container--left.column-6
+      h2.contact__title Мы всегда вам рады!
+      p.contact__desc Безусловно, новая модель организационной деятельности в&nbsp;значительной степени обусловливает важность распределения внутренних резервов и&nbsp;ресурсов.
+      form.contact__form(action="#" method="POST")
+        input.contact__input(type="text" id="name" name="name" placeholder="Как вас зовут?")        
+        input.contact__input(type="tel" id="phone" name="phone" placeholder="Ваш телефон")        
+        input.contact__input(type="email" id="email" name="email" placeholder="Ваш e-mail")
+        .contact__wrapper
+          button.btn-reset.btn.contact__btn(type="submit") Отправить
+          label.contact__checkbox(role="checkbox")
+            input.contact__checkbox-input(type="checkbox" required)
+            span.contact__checkbox-text Принимаю 
+              a.contact__checkbox-agreement(href="#") пользовательское соглашение      
+    .contact__image-container.column-6      

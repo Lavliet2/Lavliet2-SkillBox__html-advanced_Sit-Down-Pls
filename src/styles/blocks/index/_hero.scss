@@ -1,0 +1,24 @@
+@use '../../abstracts/variables' as *;
+@use '../../abstracts/grid' as *;
+
+.hero {
+    position: relative;
+    align-content: end;
+    background-image: url("../../images/hero-bg.png");
+    background-size: cover;
+    background-position: center;        
+    background-repeat: no-repeat;
+    height: 100%;
+    &__container {
+        padding: 80px 0;
+        row-gap: 49px;
+    }
+    &__title {
+        grid-column: 1 / span 5;
+        color: $color-text-secondary;
+        padding-right: 30px;
+    }
+    &__btn {
+        grid-row: 2;
+    }
+}

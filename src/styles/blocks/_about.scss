@@ -1,0 +1,122 @@
+// @use '../abstracts/variables' as *;
+// @use '../abstracts/mixins' as mixin;
+
+// .about {
+//     @include mixin.section-spacing($section-spacing-large);
+//     background-color: $color-background-dark;
+//     padding: 30px 0 69px 0;
+//     color: $color-text-primary;
+  
+//     &__container {
+//       gap:0;
+//       column-gap: 30px;
+//     }
+
+//     &__title {
+//         margin: 0;
+//         grid-column: 1 / span 2;
+//         margin-bottom: 4px;
+//     }
+
+//     &__left {
+//       grid-column: 1 / span 6;
+//       align-self: start;
+//     }
+  
+//     &__right {
+//       grid-column: 7 / span 6; 
+        
+//       &-img {
+//         margin-bottom: 14px;
+//         width: 100%;
+//       }
+//       &__form {        
+//         &-title {
+//             margin-bottom: 16px;
+//         }      
+//         form {
+//             display: grid; 
+//             grid-template-columns: 1fr auto; 
+//             grid-gap: 30px;
+//         }  
+//         &-input {
+//             margin: 0;
+//             padding: 15px 23px;
+//             border: 1px solid $color-background-input;
+//             background-color: $color-background-input;
+//             font-family: Roboto;
+//             font-size: 16px;
+//             font-weight: 400;
+//             line-height: 18.75px;  
+//         }        
+//       }
+//     }
+//     @media (max-width: 1400px) {
+//       padding-bottom: 85px;
+//       &__right-img {
+//         margin-bottom: 14px;
+//       }
+//       &__title {
+//         margin-bottom: 10px;
+//       }
+//       &__right {
+//         form {
+//           grid-template-columns: 0.73fr;
+//           row-gap: 20px;
+//         }
+//       }
+//     }
+//     @media (max-width: 992px) {
+//       padding-bottom: 62px;
+//       &__title {
+//         grid-column: 1 / span 3;
+//         margin-bottom: 5px;
+//       }
+
+//       &__right {
+//         transform: translateY(-5px);
+//         form {
+//           grid-template-columns: 1fr;
+//         }
+//       }
+//     }
+//     @media (max-width: 750px) {
+//       @include mixin.section-spacing($section-spacing-default);
+//       padding: 34px 0 55px 0;
+//       &__title {
+//         grid-column: 1 / span 12;
+//       }
+//       &__left {
+//         grid-column: 1 / span 12;
+//         padding-right: 43px;
+//         margin-bottom: 29px;
+//       }
+//       &__right {
+//         grid-column: 1 / span 10;
+//         img {
+//           min-width: 278px;
+//           min-height: 278px;
+//           margin-bottom: 17px;
+//         }
+//         &__form {
+//           &-title {
+//             margin-bottom: 14px;
+//           }
+//           &-input {
+//             padding: 12px 23px;
+//             font-size: 14px;
+//             line-height: 16.41px;
+//           }
+//         }
+//       }
+//     }
+//     @media (max-width: 450px) {
+//       &__container {
+//         column-gap: 0;
+//       }
+//       &__left {
+//         padding-right: 0px;
+//       }
+//     }
+//   }
+  

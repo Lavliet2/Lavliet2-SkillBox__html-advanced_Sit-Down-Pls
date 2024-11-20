@@ -1,0 +1,40 @@
+@use '../../abstracts/variables' as *;
+@use '../../abstracts/mixins' as mixin;
+
+.useful {
+  @include mixin.section-spacing($section-spacing-default);
+  &__container {
+    gap: 26px;
+  }
+  &__img {
+    background-size: contain;
+    background-position: 0%;
+    background-repeat: no-repeat; 
+    &--left {
+        background-image: url('../../images/useful-left.png');
+    }   
+    &--right {
+        background-image: url('../../images/useful-right.png');
+    }
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: $color-background-primary;
+    border-bottom-left-radius: 10px ;
+    border-bottom-right-radius: 10px ;
+  }
+  &__items {
+    display: grid;
+    grid-template-rows: 1fr 37%;
+    width: 624px;
+    height: 676px;
+    border-radius: 10px;
+    &--content {
+        font-size: 24px;
+        line-height: 32.68px;
+    }
+  }
+}

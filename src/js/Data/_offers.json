@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Кресло велюровое \"X&#8209;24\"",
+    "newPrice": "15 990",
+    "oldPrice": "25 990",
+    "image": "../../images/products",
+    "alt": "Кресло велюровое X 24",
+    "discount": "- 9 000",
+    "desc": "chair"
+  },
+  {
+    "name": "Диван тканевый \"Z&#8209;44\"",
+    "newPrice": "22 990",
+    "oldPrice": "32 990",
+    "image": "../../images/products",
+    "alt": "Диван тканевый Z 44",
+    "discount": "- 10 000",
+    "desc": "sofa"
+  },
+  {
+    "name": "Будильник \"Quartz&#8209;23\"",
+    "newPrice": "1 290",
+    "oldPrice": "1 890",
+    "image": "../../images/products",
+    "alt": "Будильник Quartz 23",
+    "discount": "- 600",
+    "desc": "clock"
+  }
+  ]

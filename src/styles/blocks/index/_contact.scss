@@ -1,0 +1,128 @@
+@use '../../abstracts/variables' as *;
+@use '../../abstracts/mixins' as mixin;
+
+.contact {
+    position: relative;
+    &__container {
+    }
+  
+    &__content {
+      grid-column: span 6;
+    }
+    &__title {
+        color: $color-text-primary;
+        margin-bottom: 9px;
+    }  
+    &__desc {
+        font-size: 14px;
+        line-height: 19.07px;
+        margin-bottom: 15px;
+    }  
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }   
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    &__input {
+        padding: 17px 18px;
+        border: none;
+        border-radius: 10px;
+        color: $color-text-primary;
+        background-color:  $color-background-primary;
+        transition: all 0.3s ease-in-out;      
+        &:focus {
+            background-color: $color-input-focus;
+            outline: 1px solid $color-input-focus-border;
+        }
+        &:hover {
+            background-color: $color-input-hover;
+        }
+        &:active {
+            background-color: $color-input-active;;
+            outline: 1px solid $color-input-active-border;
+        }
+    }
+    &__btn {
+        padding: 15px 32px;
+    }        
+    &__checkbox {
+        display: inline;
+        user-select: none;
+        cursor: pointer;
+        max-width: fit-content;
+        &-input {
+            position: absolute;
+            appearance: none;
+          }          
+          &-text {
+            position: relative;
+            padding-left: 24px;
+            font-size: 14px;
+            line-height: 19.07px;                
+          }
+          &-agreement {
+            color: $color-link-catalog;
+            border-bottom: 1px solid $color-link-catalog;
+            transition: all 0.3s ease-in-out;  
+            &:focus {
+                color: $color-menu-focus;
+                outline: none;
+                background-color: $color-menu-focus-bg;
+              }          
+              &:hover {
+                color: $color-menu-hover;
+              }
+              &:active {
+                color: $color-menu-active;
+                border-bottom-color: $color-menu-active;
+                background-color: transparent;
+            }
+          }          
+          &-text::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 14px;
+            height: 14px;
+            border: 1px solid black;
+            transform: translateY(-50%);
+          }          
+          &-text::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 15px;
+            height: 14px;
+            background-image: url("../../../images/chekbox.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transform: translateY(-50%);
+            transition: opacity 0.3s ease-in-out;
+          }          
+          &-input:checked+&-text::after {
+            opacity: 1;
+          }          
+          &-input:focus+&-text {
+            outline-offset: 5px;
+            outline: var(--focus);
+          }           
+    }
+    &__image-container {
+        background-image: url("../../../images/contact.png");
+        background-size: contain;
+        background-repeat: no-repeat;   
+        background-position: 0%;
+        width: 100%;
+        height: 100%;
+    }
+
+}
+  
