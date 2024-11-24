@@ -4,7 +4,10 @@ main
   section.product
    .grid-container.product__container
       .product__img.column-6
-        img(src="../../../images/sofa-blue.webp")
+        img(src="../../../images/sofa-blue.webp",
+          alt="Диван тканевый прямой \"D‑31\"",
+          loading="lazy"
+        )
       .product__buy.column-6
         each catalog in _catalogs
           if catalog.show === true 
@@ -37,7 +40,10 @@ main
       h3.column-12 Похожие товары
       each similar in _similar
         .card.column-3.catalog__card
-          img.card--image(src=`${similar.image}/${similar.alt.toLowerCase().replace(/\s+/g, '-').replace(/["']/g, '')}.webp`, alt=similar.alt)
+          img.card--image(src=`${similar.image}/${similar.alt.toLowerCase().replace(/\s+/g, '-').replace(/["']/g, '')}.webp`,
+           alt=similar.alt,
+           loading="lazy"
+          )
           .card--star-wrapper
             svg(width="16" height="15")
               use(xlink:href="/images/sprite.svg#star")            

@@ -2,14 +2,14 @@ footer.footer(id="footer")
   .footer__container.grid-container
     .footer__wrapper
       .footer__section.footer__section--logo
-        a.footer__logo(href="#")
-          svg.icon-phone(width="187" height="27")
+        a.footer__logo(href="/" aria-label="Перейти на главную страницу")
+          svg.icon-phone(width="187" height="27" role="img" aria-hidden="true")
             use(xlink:href="/images/sprite.svg#logo")
       .footer__section.footer__section--social
-        a(href="#").footer__icon
+        a(href="#" aria-label="Одноклассники" title="Перейти в Одноклассники").footer__icon
           svg.icon-menu(width="30" height="30")
             use(xlink:href="/images/sprite.svg#ok")   
-        a(href="#").footer__icon
+        a(href="#" aria-label="ВКонтакте" title="Перейти во ВКонтакте").footer__icon
           svg.icon-menu(width="30" height="28")
             use(xlink:href="/images/sprite.svg#vk")  
     .footer__section.footer__section--nav          

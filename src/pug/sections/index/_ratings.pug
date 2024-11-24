@@ -4,7 +4,11 @@ section.ratings(id="ratings")
     .ratings__container.grid-container.column-12
       each rating in _ratings
         .card.column-3.ratings__card
-          img.card--image(src=`${rating.image}/${rating.alt.toLowerCase().replace(/\s+/g, '-').replace(/["']/g, '')}.webp`, alt=rating.alt)
+          img.card--image(src=`${rating.image}/${rating.alt.toLowerCase().replace(/\s+/g, '-').replace(/["']/g, '')}.webp`, 
+            alt=rating.alt,
+            loading="lazy"
+          )                
+          //- img.card--image(src=`${rating.image}/${rating.alt.toLowerCase().replace(/\s+/g, '-').replace(/["']/g, '')}.webp`, alt=rating.alt)
           .card--star-wrapper
             svg(width="16" height="15")
               use(xlink:href="/images/sprite.svg#star")            

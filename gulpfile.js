@@ -19,6 +19,11 @@ import through2 from 'through2';
 import copy from 'gulp-copy';
 import path from 'path';
 import { readFile } from 'fs/promises';
+import gzip from 'gulp-gzip';
+import gzipStatic from 'connect-gzip-static';
+import rev from 'gulp-rev';
+import compression from 'compression';
+import serveStatic from 'serve-static';
 
 const { src, dest, series, parallel, watch } = gulp;
 
@@ -29,7 +34,13 @@ const dist = isProd ? 'build' : 'dev';
 const noop = () => through2.obj();
 
 const clean = () => del.deleteAsync([dist]);
-
+const cacheBust = () => {
+    return src(`${dist}/**/*.{css,js}`)
+        .pipe(rev())
+        .pipe(dest(dist))
+        .pipe(rev.manifest())
+        .pipe(dest(dist));
+};
 // const resources = () => {
 //     console.log("Сборка - " + dist)
 //     return src('src/resources/**')
@@ -58,49 +69,38 @@ const pugTask = async () => {
                     _offers: offers,
                     _ratings: ratings,
                     _catalogs: catalogs,
-                    _similar: similar
+                    _similar: similar,
+                    preloadImages: ['/src/images/hero-bg.webp'],
+                    preloadImages: ['/src/images/banner-bg.webp']
                 },
             })
         )
         .pipe(dest(dist))
         .pipe(browserSync.stream());
 };
-// const pugTask = () => {
-//     const offers = require('./src/js/components/_offers.js').default;
-//     console.log('Loaded offers:', offers); // Отладка
-//     return src('src/pug/pages/*.pug')
-//         .pipe(
-//             pug({
-//                 pretty: !isProd,
-//                 locals: { _offers: offers },
-//             })
-//         )
-//         .pipe(dest(dist))
-//         .pipe(browserSync.stream());
-// };
 
 const fonts = () => {
-    return src('src/fonts/**/*.{woff,woff2}') // Путь к шрифтам
-        .pipe(copy(`${dist}/fonts`, { prefix: 2 })); // Копируем в папку сборки
+    return src('src/fonts/**/*.{woff,woff2}') 
+        .pipe(copy(`${dist}/fonts`, { prefix: 2 })); 
 };
 
 const images = () => {
     return src('src/images/**/*.{webp,png,jpg,jpeg,gif,svg}')
-        .pipe(copy(`${dist}/images`, { prefix: 2 })); // Копирование с опцией префикса для корректного пути
+        .pipe(copy(`${dist}/images`, { prefix: 2 })); 
 };
 
 
 
 const scss = () => {
-    return src('src/styles/**/*.scss') // Путь к SCSS файлам
-        .pipe(!isProd ? sourcemaps.init() : noop()) // Если не продакшн, то включаем sourcemaps
-        .pipe(sassCompiler().on('error', sassCompiler.logError)) // Компиляция SCSS в CSS
+    return src('src/styles/**/*.scss') 
+        .pipe(!isProd ? sourcemaps.init() : noop())
+        .pipe(sassCompiler().on('error', sassCompiler.logError))
         .pipe(autoprefixer({
             cascade: false
         }))
-        .pipe(isProd ? cleanCSS({ level: 2 }) : noop()) // Минификация для продакшн
-        .pipe(!isProd ? sourcemaps.write() : noop()) // Запись sourcemaps
-        .pipe(dest(dist)) // Путь для сохранения результата
+        .pipe(isProd ? cleanCSS({ level: 2 }) : noop()) 
+        .pipe(!isProd ? sourcemaps.write() : noop()) 
+        .pipe(dest(dist)) 
         .pipe(browserSync.stream());
 };
 
@@ -140,10 +140,20 @@ const scripts = () => {
         .pipe(browserSync.stream());
 };
 
+const compressFiles = () => {
+    return src(`${dist}/**/*.{html,css,js}`)
+        .pipe(gzip({ append: true })) 
+        .pipe(dest(dist));
+};
+
 const watchFiles = () => {
     browserSync.init({
         server: {
-            baseDir: dist
+            baseDir: dist,
+            middleware: [
+                compression(), // Включение gzip
+                serveStatic(dist, { extensions: ['html'] }) // Отдача сжатых файлов
+            ],
         },
         browser: 'C:/Program Files/Google/Chrome/Application/chrome.exe'
     });
@@ -153,7 +163,8 @@ watch('src/**/*.html', htmlMinify);
 watch('src/styles/**/*.scss', scss);
 watch('src/images/svg/**/*.svg', svgSprites);
 watch('src/js/**/*.js', scripts);
-watch('src/pug/**/*.pug', pugTask);
+watch('src/pug/**/*.pug', pugTask).on('change', browserSync.reload);;
+watch('src/images/**/*', images).on('change', browserSync.reload);
 // watch('src/js/**/*.js', resources);
 
 export const runClean = clean;
@@ -164,5 +175,5 @@ export const runImages = images;
 export const runScripts = scripts;
 
 // export const build = series(clean, resources, images, fonts, htmlMinify, scss, svgSprites, scripts, watchFiles);
-export const build = series(clean, parallel(images, fonts, pugTask, scss, svgSprites, scripts), watchFiles);
+export const build = series(clean, parallel(images, fonts, pugTask, scss, svgSprites, scripts), compressFiles, cacheBust, watchFiles);
 export default build;

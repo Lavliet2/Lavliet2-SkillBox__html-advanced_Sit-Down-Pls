@@ -8,40 +8,43 @@ section.catalog
         form.sidebar__filters
           fieldset.sidebar__filter-group          
             legend.filter-group__title Цвет
-            label.checkbox.filter-group__item
-              input.checkbox-input(type="checkbox", value="Коричневый")
+            label.checkbox.filter-group__item(for="color-brown")
+              input.checkbox-input(type="checkbox", value="Коричневый", role="checkbox", aria-checked="false")
               span.checkbox-text.filter__chackbox-text.filter__chackbox-text Коричневый
-            label.checkbox.filter-group__item
-              input.checkbox-input(type="checkbox", value="Чёрный", checked)
+            label.checkbox.filter-group__item(for="color-black")
+              input.checkbox-input(type="checkbox", value="Чёрный", checked, role="checkbox", aria-checked="true")
               span.checkbox-text.filter__chackbox-text Чёрный
-            label.checkbox.filter-group__item
-              input.checkbox-input(type="checkbox", value="Синий")
+            label.checkbox.filter-group__item(for="color-blue")
+              input.checkbox-input(type="checkbox", value="Синий", role="checkbox", aria-checked="false")
               span.checkbox-text.filter__chackbox-text Синий
-            label.checkbox.filter-group__item
-              input.checkbox-input(type="checkbox", value="Белый")
+            label.checkbox.filter-group__item(for="color-white")
+              input.checkbox-input(type="checkbox", value="Белый", role="checkbox", aria-checked="false")
               span.checkbox-text.filter__chackbox-text Белый
           fieldset.sidebar__filter-group
             legend.filter-group__title Категория
-            label.checkbox.filter-group__item
-              input.checkbox-input(type="checkbox", value="Диваны", checked)
+            label.checkbox.filter-group__item(for="category-sofas")
+              input.checkbox-input(type="checkbox", value="Диваны", checked, role="checkbox", aria-checked="true")
               span.checkbox-text.filter__chackbox-text Диваны
-            label.checkbox.filter-group__item
-              input.checkbox-input(type="checkbox", value="Кресла")
+            label.checkbox.filter-group__item(for="category-chairs")
+              input.checkbox-input(type="checkbox", value="Кресла", role="checkbox", aria-checked="false")
               span.checkbox-text.filter__chackbox-text Кресла
           fieldset.sidebar__filter-group
             legend.filter-group__title Цена
             .filter-group__price
               span от
-              input(type="number", placeholder="2000")
+              input(type="number", placeholder="2000", id="price-from", aria-labelledby="price-label")
               span до
-              input(type="number", placeholder="15000")
+              input(type="number", placeholder="15000", id="price-to", aria-labelledby="price-label")
       +cardOxford("../../images/banner-bg-little.webp", "Оксфорд 1950", "Новая коллекция изысканных кресел", "#")
     main.catalog__content.grid-container      
       h3.catalog__title.column-12  Каталог
       .ratings__container.grid-container.column-12
         each catalog in _catalogs
           .card.column-4.catalog__card
-            img.card--image(src=`${catalog.image}/${catalog.alt.toLowerCase().replace(/\s+/g, '-').replace(/["']/g, '')}.webp`, alt=catalog.alt)
+            img.card--image(src=`${catalog.image}/${catalog.alt.toLowerCase().replace(/\s+/g, '-').replace(/["']/g, '')}.webp`,
+              alt=catalog.alt,
+              loading="lazy"
+            )
             .card--star-wrapper
               svg(width="16" height="15")
                 use(xlink:href="/images/sprite.svg#star")            

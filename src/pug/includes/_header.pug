@@ -1,12 +1,12 @@
 header
   .header__container.grid-container
     .header__section.header__section--phone
-      a.header__phone(href="tel:+74958854547")
-        svg.icon-phone(width="22" height="22")
+      a.header__phone(href="tel:+74958854547", aria-label="Позвонить нам по номеру +7 (495) 885-45-47")
+        svg.icon-phone(width="22" height="22", aria-hidden="true")
           use(xlink:href="/images/sprite.svg#phone")
         | +7 (495) 885-45-47
     .header__section.header__section--nav
-      nav.header__nav
+      nav.header__nav(aria-label="Основное меню")
         ul.header__first-menu
           li.header__item.nav-link
             a(href="#") О компании
@@ -17,11 +17,11 @@ header
           li.header__item.nav-link
             a(href="#") Дизайн-решение
     .header__section.header__section--logo
-      a.header__logo(href="index.html")
-        svg.icon-phone(width="187" height="27")
+      a.header__logo(href="index.html", aria-label="На главную страницу")
+        svg.icon-phone(width="187" height="27", aria-hidden="true")
           use(xlink:href="/images/sprite.svg#logo") 
     .header__section.header__section--nav2     
-      nav.header__nav2
+      nav.header__nav2(aria-label="Вторичное меню")
         ul.header__second-menu
           li.header__item.nav-link
             a(href="catalog.html") Каталог
@@ -36,18 +36,17 @@ header
           li.header__item.nav-link
             a(href="#") Контакты    
     .header__section.header__section--search       
-      form.header__search-form(action="#", method="get")
-        svg.icon-search(width="20" height="20")
+      form.header__search-form(action="#", method="get", role="search", aria-label="Поиск по сайту")
+        svg.icon-search(width="20" height="20", aria-hidden="true")
           use(xlink:href="/images/sprite.svg#search")                              
-        input.header__search-input(type="text" placeholder="Я хочу купить...")
-        button.btn-reset.header__search-btn(type="submit")
-          svg.icon-search(width="32" height="32")
+        input.header__search-input(type="text", placeholder="Я хочу купить...", aria-label="Введите запрос для поиска")
+        button.btn-reset.header__search-btn(type="submit", aria-label="Начать поиск")
+          svg.icon-search(width="32" height="32", aria-hidden="true")
             use(xlink:href="/images/sprite.svg#btn-search")           
     .header__section.header__section--icons
-      a(href="#").header__icon.user-icon
-        svg.icon-menu(width="26" height="28")
+      a(href="#", aria-label="Личный кабинет").header__icon.user-icon
+        svg.icon-menu(width="26" height="28", aria-hidden="true")
           use(xlink:href="/images/sprite.svg#account")   
-      a(href="#").header__icon.basket-icon
-        svg.icon-menu(width="30" height="28")
-          use(xlink:href="/images/sprite.svg#basket")         
-
+      a(href="#", aria-label="Корзина").header__icon.basket-icon
+        svg.icon-menu(width="30" height="28", aria-hidden="true")
+          use(xlink:href="/images/sprite.svg#basket")  
