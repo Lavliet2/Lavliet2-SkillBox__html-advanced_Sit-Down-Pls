@@ -1,6 +1,15 @@
 @use '../abstracts/variables' as *;
+@use "sass:color";
 
 @mixin section-spacing($spacing: $section-spacing-default) {
     margin-top: $spacing;
     margin-bottom: $spacing;
   }
+
+@mixin hover-scale($color) {
+  transition: all 0.3s ease-in-out;     
+  &:hover {
+      scale: 1.1;
+      background-color: color.adjust($color, $lightness: -10%);
+  }
+}

@@ -1,4 +1,5 @@
 @use '../../abstracts/variables' as *;
+@use '../../abstracts/mixins' as mixin;
 
 .categories {
     &__grid {
@@ -10,37 +11,38 @@
     }
     &__img {
         &--sofa {
-            background-image: url('../../images/products/Диваны.png');
+            background-image: url('../../images/products/Диваны.webp');
             background-size: contain;
             background-position: 0%;
             background-repeat: no-repeat;         
         }
         &--chair {
-            background-image: url('../../images/products/Кресла.png');
+            background-image: url('../../images/products/Кресла.webp');
             background-size: contain;
             background-position: 0%;
             background-repeat: no-repeat;         
         }
         &--bed {
-            background-image: url('../../images/products/Кровати.png');
+            background-image: url('../../images/products/Кровати.webp');
             background-size: contain;
             background-position: 0%;
             background-repeat: no-repeat;         
         }
         &--dresser {
-            background-image: url('../../images/products/Тумбы и комоды.png');
+            background-image: url('../../images/products/Тумбы и комоды.webp');
             background-size: contain;
             background-position: 0%;
             background-repeat: no-repeat;         
         }
         &--chairs {
-            background-image: url('../../images/products/Стулья.png');
+            background-image: url('../../images/products/Стулья.webp');
             background-size: contain;
             background-position: 0%;
             background-repeat: no-repeat;         
         }
     }
     &__items {
+        @include mixin.hover-scale($color-background-primary);
         display: grid;
         background-color: $color-background-primary;
         grid-column: span 6;

@@ -1,40 +1,45 @@
 @use '../abstracts/variables' as *;
 
 .footer {
-    margin-top: 70px;
-    &__container {
-        padding: 23px 0;
-        justify-content: start;
-        align-items: start;
-    }    
-    &__wrapper {
-        display: grid;
-        justify-content: space-between;
-        align-items: start;
-        grid-column: span 4;
-        height: 100%;
-    }
+  margin-top: 70px;
+  &__container {
+      padding: 23px 0;
+      justify-content: start;
+      align-items: start;
+  }    
+  &__wrapper {
+    display: grid;
+    justify-content: space-between;
+    align-items: start;
+    grid-column: span 4;
+    height: 100%;
+  }
   &__nav {
     display: flex;
     flex-direction: column;
   }
   &__section {
     &--nav {
-        display: grid;
-        grid-template-columns: repeat(4, auto);
-        justify-content: space-between;
-        grid-column: span 8;
-        column-gap: 10px;
-        font-size: 14px;
-        line-height: 14px;       
-        color: $color-menu-first;     
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      justify-content: space-between;
+      grid-column: span 8;
+      column-gap: 10px;
+      font-size: 14px;
+      line-height: 14px;       
+      color: $color-menu-first;   
     }
     &--social {
-        align-self: flex-end;
-        a {
-            margin-right: 20px;
-        }
-        // grid-row: 2;
+      align-self: flex-end;
+      a {
+        margin-right: 20px;
+      }
+    }
+    &--copy {
+      justify-self: center;
+      font-size: 14px;
+      line-height: 19.07px;   
+      color: $color-text-secondary;
     }
   }
   &__menu {
@@ -44,9 +49,40 @@
   }
   &__item {
     &:first-child {
-        font-size: 16px;
-        line-height: 16px;
-        color: $color-menu-second;
+      font-size: 16px;
+      line-height: 16px;
+      color: $color-menu-second;
     }
+  }
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 50%;
+    background-color: transparent; 
+    color: $color-menu-first;
+    &:focus {
+      outline: 2px solid $color-menu-icons-focus; 
+      outline-offset: 4px;
+      color: $color-menu-icons-focus-bg;
+      background-color: $color-menu-icons-focus;
+    }
+    &:hover {
+      transform: scale(1.3);
+      background-color: $color-menu-icons-focus; 
+      svg {
+        color: $color-menu-icons; 
+      }
+    }
+    &:active {
+      transform: scale(1.3);
+      background-color: $color-menu-icons-focus; 
+      svg {
+        color: $color-menu-icons-active; 
+      }
+    } 
   }
 }

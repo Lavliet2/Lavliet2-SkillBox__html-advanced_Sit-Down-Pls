@@ -1,37 +1,24 @@
+@use '../abstracts/variables' as *;
+
 .breadcrumbs {
     display: flex;
     align-items: center;
-    font-size: 14px;
-    color: #333;
-  
+    margin-top: 23px;
+    margin-bottom: 32px;
     &__list {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
+        display: flex;
+        font-size: 14px;
+        line-height: 14px;  
+        color: $color-text-secondary
     }
-  
     &__item {
       &:not(:last-child)::after {
-        content: '>'; // Разделитель
-        margin: 0 8px;
-        color: #ccc;
+          content: '/';
+          margin: 0 5px;
       }
     }
-  
-    &__link {
-      text-decoration: none;
-      color: #007bff;
-      transition: color 0.3s;
-  
-      &:hover {
-        color: #0056b3;
-      }
-    }
-  
     &__current {
-      color: #555; // Цвет для текущей страницы
-      font-weight: bold;
+        color: $color-link-catalog-active;
     }
   }
   

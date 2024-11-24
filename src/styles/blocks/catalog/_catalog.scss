@@ -1,0 +1,101 @@
+@use '../../abstracts/variables' as *;
+
+.catalog {
+    &__container{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        column-gap: 10px;
+    }
+
+    &__sidebar {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+    .sidebar__title {
+        margin-bottom: 20px;
+    }
+    .sidebar__filter-group {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 18px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20.8px;  
+        color: $color-text-sidebar;
+        border: none;
+        .filter-group__title {
+            margin-bottom: 8px;  
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 20.8px;                    
+        }
+        .filter-group__item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;    
+            input {
+            }
+            .filter__chackbox-text {
+                margin-bottom: 5px;
+                padding-left: 34px;                              
+                &::before {                    
+                    width: 18px;
+                    height: 18px;
+                }
+                &::after {      
+                    left: 2px;
+                    top: 17%;              
+                    transform: scale(1.3);
+                }
+            }            
+        }
+        .filter-group__price {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+    
+            input {
+                flex: 1;
+              padding: 4px 0;
+                max-width: 86px;
+                border: 1px solid $color-menu-first;
+                border-radius: 2px;
+            }
+          }        
+    }
+    &__content {
+        width: 100%;
+        gap: 24px;
+    }
+    .pagination {
+        display: flex;
+        justify-content: center;    
+        grid-column: 2;
+        gap: 16px;
+        .pagination__item {
+            padding: 0 9px;
+            color: $color-link-catalog;
+            border: 2px solid $color-link-catalog;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;    
+            &:first-child{
+                background-color: $color-link-catalog-hover;
+                color: $color-background-light;
+            }
+            &:focus {
+                background-color: $color-link-catalog-focus;
+              } 
+            &:hover {
+              background-color: $color-link-catalog-hover;
+              color: $color-background-light;
+            } 
+            &:active {
+                background-color: $color-link-catalog-active;
+                color: $color-background-light;
+            } 
+        }
+    }
+}

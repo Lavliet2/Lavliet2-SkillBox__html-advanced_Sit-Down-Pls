@@ -1,0 +1,48 @@
+include ../../includes/_cardOxford.pug
+
+main
+  section.product
+   .grid-container.product__container
+      .product__img.column-6
+        img(src="../../../images/sofa-blue.webp")
+      .product__buy.column-6
+        each catalog in _catalogs
+          if catalog.show === true 
+            .product__buy--container.card--star-wrapper
+              svg(width="16" height="15")
+                use(xlink:href="/images/sprite.svg#star")            
+              span.card--star= `${catalog.star}`
+              h3.product__buy--title !{catalog.fullName}
+              p3.product__buy--desc !{catalog.desc}
+            p.product__buy--price.card--price= `${catalog.price}`
+            .product__wrapper
+              button.btn-reset.btn.product__buy--btn Купить в один клик
+              button.btn-reset.nav-link.product__buy--add + Добавить в корзину
+      .product__mechanism.column-6
+        h4.product__mechanism--title Опорный механизм
+        p.product__mechanism--desc Опорный механизм напоминает пантограф, к которому добавили дополнительную секцию. У опорного дивана сиденье «выпрыгивает» 
+          |вперёд и вытаскивает вторую часть спального места. Заключительный штрих — опустить спинку.
+        p.product__mechanism--desc Этот механизм не портит пол и не боится ковров. Требуется чуть больше силы, чтобы разложить диван, но подросток справится.          
+      .product__details.column-6
+        each catalog in _catalogs
+          if catalog.show === true 
+            ul.product__details__list
+              each characteristic in catalog.characteristics
+                li.product__details__item
+                  span.product__details__name= `${characteristic.name}`
+                  span.product__details__dots
+                  span.product__details__value= `${characteristic.value}`      
+  section.similar
+    .grid-container.similar__container    
+      h3.column-12 Похожие товары
+      each similar in _similar
+        .card.column-3.catalog__card
+          img.card--image(src=`${similar.image}/${similar.alt.toLowerCase().replace(/\s+/g, '-').replace(/["']/g, '')}.webp`, alt=similar.alt)
+          .card--star-wrapper
+            svg(width="16" height="15")
+              use(xlink:href="/images/sprite.svg#star")            
+            span.card--star= `${similar.star}`
+          .card--content-wrapper
+            h3.card--title !{similar.name}
+            p.card--price= `${similar.price}`
+            button.btn-reset.btn.btn-buy.card--btn(type="button") Купить       

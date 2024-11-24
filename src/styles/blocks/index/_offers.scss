@@ -11,6 +11,7 @@
     margin: 0;    
   }
   &__items {
+    @include mixin.hover-scale($color-background-primary);
     position: relative;
     display: grid;
     grid-template-columns: 1fr;
@@ -29,13 +30,13 @@
       row-gap: 23px;
     }
     &--chair {
-      background-image: url("../../images/products/Кресло-велюровое-X-24.png");
+      background-image: url("../../images/products/Кресло-велюровое-X-24.webp");
       background-repeat: no-repeat;
       background-position-x: center;
       background-position-y: 72px;
     }
     &--sofa {
-      background-image: url("../../images/products/Диван-тканевый-Z-44.png");
+      background-image: url("../../images/products/Диван-тканевый-Z-44.webp");
       background-repeat: no-repeat;
       background-position-x: center;
       background-position-y: 37px;
@@ -52,7 +53,7 @@
       }
     }
     &--clock {
-      background-image: url("../../images/products/Будильник-Quartz-23.png");
+      background-image: url("../../images/products/Будильник-Quartz-23.webp");
       background-repeat: no-repeat;
       background-position-x: center;
       background-position-y: 72px;

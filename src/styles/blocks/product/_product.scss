@@ -1,0 +1,115 @@
+@use '../../abstracts/variables' as *;
+
+.product {
+    margin-top: 40px;
+    margin-bottom: 80px;
+    &__container {
+        row-gap: 110px;
+    }
+    &__buy {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        &--container {
+            margin: 0;
+            padding: 0;
+        }
+        &--desc {
+            font-size: 14px;
+            line-height: 14px;                        
+            color: $color-text-secondary;
+        }
+        &--price {
+            font-size: 36px;
+            line-height: 46.8px;                        
+        }
+        &--btn {
+            margin-bottom: 13px;
+            padding: 17px 30px;
+            font-weight: 600;
+        }
+        &--add {
+            display: block;
+            align-self: flex-start;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 20.8px;
+            margin-left: 30px;
+            color: $color-menu-icons-hover;
+        }
+    }
+
+    &__mechanism {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        position: relative;
+        &--title {
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 16px;            
+        }
+        &--desc { 
+            margin-bottom: 8px;
+            font-size: 14px;
+            line-height: 25.2px;                                    
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 526px;
+            height: 113px;
+            background-image: url("../../images/sofa-blue-mechanism.webp");
+            background-repeat: no-repeat;
+        }
+    }
+
+    &__details {
+        &__list {
+            font-size: 14px;
+            line-height: 25.2px;       
+          }
+        
+          &__item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 80px;
+          }
+        
+          &__name {
+            flex-shrink: 0;
+            margin-right: 10px;
+            color:$color-text-secondary;     
+          }
+        
+          &__dots {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            height: 1px;
+            margin: 0 8px;
+            background: repeating-linear-gradient(
+              to right,
+              #000,
+              #000 2px,
+              transparent 2px,
+              transparent 4px
+            );
+          }
+        
+          &__value {
+            color:$color-text-primary; 
+            flex-shrink: 0;
+            text-align: left;
+          }
+    }
+}
+.similar {
+    &__container {
+        row-gap: 25px;
+    }
+}

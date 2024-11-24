@@ -1,15 +1,3 @@
-// @use 'base/normalize';
-// @use 'blocks/main';
-// @use 'abstracts/grid';
-// @use 'abstracts/variables';
-// @use 'abstracts/mixins';
-// @use 'blocks/header'; 
-// @use 'blocks/hero';
-// @use 'blocks/about';
-// @use 'blocks/projects';
-// @use 'blocks/contacts';
-// @use 'blocks/footer';
-// @use 'abstracts/fonts';
 @use 'base/normalize';
 @use 'blocks/main';
 @use 'abstracts/grid';
@@ -25,3 +13,5 @@
 @use 'abstracts/fonts';
 @use 'blocks/footer';
 @use 'blocks/breadcrumbs';
+@use 'blocks/catalog/catalog';
+@use 'blocks/product/product';

@@ -44,13 +44,21 @@ const pugTask = async () => {
     const ratings = JSON.parse(
         await readFile('./src/js/Data/_ratings.json', 'utf-8')
     );
+    const catalogs = JSON.parse(
+        await readFile('./src/js/Data/_catalogs.json', 'utf-8')
+    );
+    const similar = JSON.parse(
+        await readFile('./src/js/Data/_similar.json', 'utf-8')
+    );
     return src('src/pug/pages/**/*.pug')
         .pipe(
             pug({
                 pretty: !isProd,
                 locals: { 
                     _offers: offers,
-                    _ratings: ratings
+                    _ratings: ratings,
+                    _catalogs: catalogs,
+                    _similar: similar
                 },
             })
         )

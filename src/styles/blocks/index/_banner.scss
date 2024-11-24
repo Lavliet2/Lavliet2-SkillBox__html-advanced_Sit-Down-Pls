@@ -7,7 +7,7 @@
     @include mixin.section-spacing($section-spacing-default);
     position: relative;
     align-content: center;
-    background-image: url("../../images/banner-bg.png");
+    background-image: url("../../images/banner-bg.webp");
     background-size: cover;
     background-position: center;        
     background-repeat: no-repeat;
@@ -23,9 +23,9 @@
     &__title {
         color: $color-text-banner-title;
         padding-right: 30px;
+        font-family: Playfair Display;
         font-size: 60px;
         line-height: 72px;
-
     }
     &__content {
         color: $color-text-light;

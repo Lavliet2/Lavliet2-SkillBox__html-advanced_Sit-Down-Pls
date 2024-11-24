@@ -1,10 +1,6 @@
 
 @use '../abstracts/variables' as *;
 
-html {
-    // background-color: $color-background-main;
-}
-
 body {
     margin: 0 auto;
     // max-width: 1920px;
@@ -12,11 +8,10 @@ body {
     font-size: 16px;
     font-weight: 400;
     line-height: 28px;
-    // background-color: $color-background-main;
-    @media (max-width: 750px) {
-        font-size: 14px;
-        line-height: 25px;
-    }
+    // @media (max-width: 750px) {
+    //     font-size: 14px;
+    //     line-height: 25px;
+    // }
 }
 
 ul, ol {
@@ -30,50 +25,22 @@ a {
     color: inherit;  
 }
 
-p, input, h1, h2, h3, h4, h6, h6 {
+p, input, h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
 }
 
 h1  {
-    // font-family: TT Firs Neue;
     font-size: 48px;
     font-weight: 700;
     line-height: 65.37px;
     text-align: left;
-    // @media (max-width: 1400px) {
-    //     font-size: 34px;
-    //     line-height: 34px;
-    // }
-    // @media (max-width: 992px) {
-    //     line-height: 30.06px;
-    // }
-    // @media (max-width: 750px) {
-    //     font-size: 24px;
-    //     line-height: 26.4px;
-    // }
 }
 
 h2 {
     font-size: 32px;
     font-weight: 400;
     line-height: 32px;    
-//     font-family: TT Firs Neue;
-//     font-size: 24px;
-//     font-weight: 700;
-//     line-height: 30.96px;
-//     text-align: left;
-//     @media (max-width: 1400px) {
-//         line-height: 24.96px;
-//     }
-//     @media (max-width: 992px) {
-//         font-size: 24px;
-//         line-height: 30.96px;
-//     }
-//     @media (max-width: 750px) {
-//         font-size: 18px;
-//         line-height: 18.72px;        
-//     }
 }
 
 h3 {
@@ -81,15 +48,17 @@ h3 {
     font-weight: 400;
     line-height: 31.2px;        
     color: $color-text-primary;
-    // font-family: TT Firs Neue;
-    // font-size: 24px;
-    // font-weight: 400;
-    // line-height: 22px;
-    // text-align: left;   
-    // @media (max-width: 750px) {
-    //     font-size: 16px;
-    //     line-height: 22px;        
-    // }     
+}
+
+h4 {
+    font-size: 24px;
+    line-height: 31.2px;    
+}
+
+h5 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 23.4px;    
 }
 
 .btn-reset {
@@ -126,11 +95,6 @@ h3 {
         background-color: $color-btn-disable;
         cursor: not-allowed;
     }
-    // @media (max-width: 750px) {
-    //     padding: 12px 22px;
-    //     font-size: 14px;
-    //     line-height: 16.41px;
-    // }
 }
 
 .btn-buy {
@@ -228,53 +192,70 @@ h3 {
     &:active::after {
         background-image: url("../../images/arrow-active.svg");
     }
-    // &:focus-visible {
-    //     outline: 2px solid #444; // Показать кастомный outline только для клавиатуры
-    //     border-radius: 4px; // Добавить радиус
-    //   }
-
 }
 
-
-// .close-btn {
-//     position: absolute;
-//     top: 15px;
-//     right: 15px;
-//     padding: 0px 8px;
-//     background-color: #999999;
-//     color: $color-background-light;
-//     border: none;
-//     border-radius: 100%;
-//     cursor: pointer;
-//     transition: color 0.3s ease, background-color 0.3s ease;
-
-//     &:hover, &:focus {
-//         background-color: $color-hover;
-//         color: $color-background-light;
-//         outline: none;
-//     }
-// }
-
-
-// .link {
-//     font-size: 14px;
-//     font-weight: 400;
-//     line-height: 14px;
-//     color: $color-link;
-//     transition: color 0.3s ease-in-out;        
-//     &:hover {
-//         color: $color-link-hover;
-//         outline: none;
-//     }
-//     &:focus {
-//         color: $color-link-focus;
-//         outline: none;
-//         background-color: $color-link-focus-bg;
-//     }
-//     &:active {
-//         color: $color-link-active;
-//     }
-// }
-
-
-
+.checkbox {
+    display: inline;
+    user-select: none;
+    cursor: pointer;
+    max-width: fit-content;
+    &-input {
+        position: absolute;
+        appearance: none;
+      }          
+      &-text {
+        position: relative;
+        padding-left: 24px;
+        font-size: 14px;
+        line-height: 19.07px;                
+      }
+      &-agreement {
+        color: $color-link-catalog;
+        border-bottom: 1px solid $color-link-catalog;
+        transition: all 0.3s ease-in-out;  
+        &:focus {
+            color: $color-menu-focus;
+            outline: none;
+            background-color: $color-menu-focus-bg;
+          }          
+          &:hover {
+            color: $color-menu-hover;
+          }
+          &:active {
+            color: $color-menu-active;
+            border-bottom-color: $color-menu-active;
+            background-color: transparent;
+        }
+      }          
+      &-text::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 14px;
+        height: 14px;
+        border: 1px solid $color-text-input;
+        transform: translateY(-50%);
+      }          
+      &-text::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 16px;
+        height: 14px;
+        background-image: url("../../images/chekbox.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0;
+        transform: translateY(-50%);
+        transition: opacity 0.3s ease-in-out;
+      }          
+      &-input:checked+&-text::after {
+        opacity: 1;
+      }          
+      &-input:focus+&-text {
+        outline-offset: 5px;
+        outline: var(--focus);
+      }           
+}

@@ -1,0 +1,8 @@
+mixin cardOxford(image, title, subtitle, link)
+  .oxford-card
+    .oxford-card__image(style=`background-image: url(${image})`)
+    .oxford-card__content
+      h3.oxford-card__title= title
+      p.oxford-card__subtitle= subtitle
+      .categories__link
+        a.catalog-link(href="#") В каталог      

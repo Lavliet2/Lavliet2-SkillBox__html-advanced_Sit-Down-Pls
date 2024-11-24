@@ -2,9 +2,10 @@
 @use '../../abstracts/grid' as *;
 
 .hero {
+    margin-top: 32px;
     position: relative;
     align-content: end;
-    background-image: url("../../images/hero-bg.png");
+    background-image: url("../../images/hero-bg.webp");
     background-size: cover;
     background-position: center;        
     background-repeat: no-repeat;
